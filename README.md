@@ -1,43 +1,93 @@
-# Astro Starter Kit: Minimal
+# ✦ Fernanda Jara Meza — Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
+Personal portfolio website for **Fernanda Jara Meza**, graphic designer and illustrator behind the brand **Punto y Raya**.
+
+## 🖼️ Preview
+
+The site showcases Fernanda's art, illustration, and graphic design work across multiple project pages including Punto y Raya, La Terminal, El Vino y El Tiempo, and more.
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| **Astro** | Static site generator with file-based routing |
+| **React** | Interactive components (islands architecture) |
+| **Tailwind CSS** | Utility-first styling |
+| **Framer Motion** | Animations (hover effects, scroll reveals) |
+| **Vercel** | Deployment with custom domain |
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js v24+
+
+### Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/MirandaCavalie/designer-web.git
+cd designer-web
+
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The site will be available at `http://localhost:4321`
 
-## 🚀 Project Structure
+### Build for Production
 
-Inside of your Astro project, you'll see the following folders and files:
+```bash
+npm run build
+npm run preview
+```
 
-```text
-/
+## 📁 Project Structure
+
+```
 ├── public/
+│   └── images/              # Public static images
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── assets/
+│   │   ├── images/          # Main images (hero, grid cards)
+│   │   ├── punto-y-raya/    # Punto y Raya project assets
+│   │   ├── cuadros/         # Cuadros project assets
+│   │   ├── la-terminal/     # La Terminal project assets
+│   │   └── el-vino-y-el-tiempo/  # El Vino y El Tiempo assets
+│   ├── components/          # Astro & React components
+│   ├── layouts/             # Page layouts
+│   ├── pages/
+│   │   ├── index.astro      # Homepage
+│   │   └── projects/        # Detail pages for each project
+│   └── styles/              # Global CSS
+├── astro.config.mjs
+├── tailwind.config.mjs
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 📄 Pages
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Homepage** — Hero section + Art grid with project cards
+- **/projects/punto-y-raya** — Illustration brand & merch
+- **/projects/cuadros** — Painting series "La Soledad de Mi Casa"
+- **/projects/la-terminal** — Album cover art for Jaze
+- **/projects/el-vino-y-el-tiempo** — Cover art & music video design
 
-Any static assets, like images, can be placed in the `public/` directory.
+## ✨ Design Highlights
 
-## 🧞 Commands
+- **Typography:** Helvetica Neue with -0.02em letter-spacing
+- **Navbar:** Glassmorphism with blur + fade-out mask, rotating star logo
+- **Hero:** Floating polaroid animation with mix-blend-mode collage
+- **Art Grid:** Hover scale/translate effects on project cards
+- **Detail pages:** Full-bleed images with scroll-reveal animations
 
-All commands are run from the root of the project, from a terminal:
+## 👩‍🎨 Artist
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+**Fernanda Jara Meza** — Graphic Designer & Illustrator
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Built with Astro 🚀
