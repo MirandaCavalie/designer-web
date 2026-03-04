@@ -88,6 +88,3 @@ npm run preview
 
 **Fernanda Jara Meza** — Graphic Designer & Illustrator
 
----
-
-Built with Astro 🚀
