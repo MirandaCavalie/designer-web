@@ -1,0 +1,130 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+import behance101Img  from '../../assets/la-terminal/behance_1_01.png';
+import laTerminal1Img from '../../assets/la-terminal/la_terminal_1.jpg';
+import laTerminal2Img from '../../assets/la-terminal/la_terminal_2.jpg';
+import laTerminal3Img from '../../assets/la-terminal/la_terminal_3.jpg';
+
+const year = new Date().getFullYear();
+const hv = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+---
+
+<Layout
+  title="La Terminal — Fernanda Jara Meza"
+  description="Cover art for La Terminal, a single by Peruvian artist Jaze, released under Sony Music."
+>
+  <Navbar />
+
+  <main style="background: #FFFFFF;">
+
+    <div style="padding-top: 170px;"></div>
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 1 · HERO IMAGE                     -->
+    <!-- ─────────────────────────────────────────── -->
+    <img
+      src={behance101Img.src}
+      alt="La Terminal — cover art showing a flame on red background with JAZE and La Terminal text"
+      class="bleed"
+    />
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 2 · TEXT                           -->
+    <!-- ─────────────────────────────────────────── -->
+    <section class="bleed" style="padding-top: 60px; padding-bottom: 60px;">
+      <div class="reveal text-center mx-auto" style="max-width: 900px; padding: 0 24px;">
+        <p style={`font-size: 20px; color: #000000; line-height: 1.25; letter-spacing: -0.02em; font-family: ${hv}; font-weight: 400; margin-bottom: 32px;`}>
+          I illustrated the cover art for "La Terminal," a single by renowned Peruvian artist Jaze, released under Sony Music.
+          The piece reflects the song's emotional atmosphere loneliness, departure, and introspection through a minimal yet
+          expressive visual language.
+        </p>
+        <p style={`font-size: 20px; color: #000000; line-height: 1.25; letter-spacing: -0.02em; font-family: ${hv}; font-weight: 400; margin-bottom: 32px;`}>
+          The artwork was created using a hybrid technique combining <strong>scanned oil paintings</strong> with{' '}
+          <strong>digital illustration</strong>, allowing organic textures and painterly imperfections to interact with
+          precise graphic forms. This process helped build a layered visual tone that echoes the emotional depth of the music.
+        </p>
+        <p style={`font-size: 14px; color: #000000; line-height: 1.5; font-family: ${hv}; font-weight: 400;`}>
+          La terminal Jaze (Spotify): <a href="https://open.spotify.com/intl-es/track/1UnU60jPROOjM5WVS9CE7m?si=92cb0810f2c54aad&nd=1&dlsi=94d171a6a37a4d81" style="text-decoration: underline; color: #000000;">Link</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 3 · THREE TOUCHING IMAGES          -->
+    <!-- ─────────────────────────────────────────── -->
+    <div style="font-size: 0; line-height: 0;">
+      <img
+        src={laTerminal1Img.src}
+        alt="La Terminal — detail 1"
+        class="bleed"
+        style="display: block; margin: 0; padding: 0;"
+      />
+      <img
+        src={laTerminal2Img.src}
+        alt="La Terminal — detail 2"
+        class="bleed"
+        style="display: block; margin: 0; padding: 0;"
+      />
+      <img
+        src={laTerminal3Img.src}
+        alt="La Terminal — detail 3"
+        class="bleed"
+        style="display: block; margin: 0; padding: 0;"
+      />
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="max-w-[1280px] mx-auto px-6 lg:px-20 py-10 border-t border-[#E0E0E0]">
+      <div
+        class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-400"
+        style={`font-family: ${hv};`}
+      >
+        <span>© {year} Fernanda Jara Meza</span>
+      </div>
+    </footer>
+
+  </main>
+</Layout>
+
+<style>
+  .bleed {
+    display: block;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(-50vw + 50%);
+    height: auto;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  :global(body) {
+    overflow-x: hidden;
+  }
+</style>
+
+<script>
+  const els = document.querySelectorAll<HTMLElement>('.reveal');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+  els.forEach((el) => observer.observe(el));
+</script>

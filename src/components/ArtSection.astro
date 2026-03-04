@@ -1,0 +1,79 @@
+---
+import ProjectCard from './ProjectCard';
+---
+
+<section id="work" class="max-w-[1280px] mx-auto px-6 lg:px-20 py-20">
+  <!-- Section header -->
+  <div class="mb-4">
+    <h2 style="font-size: 64px; font-weight: 700; line-height: 1; margin: 0;">Art</h2>
+  </div>
+  <hr class="section-divider mb-10" />
+
+  <!-- Grid: 3 rows, 20px gap, each row 400px tall -->
+  <div class="flex flex-col gap-5">
+
+    <!-- ROW 1: Luna (~41%) + El Vino y El Tiempo (~59%) -->
+    <div class="flex flex-col md:flex-row gap-5 md:h-[400px]">
+      <div class="w-full aspect-[4/3] md:aspect-auto md:flex-[568] md:min-w-0">
+        <ProjectCard
+          client:load
+          project={{ slug: 'luna', title: 'Luna', subtitle: 'Illustration', image: '/images/luna.jpg', category: 'art', description: '', tags: [] } as any}
+          href="/projects/punto-y-raya"
+          className="h-full"
+        />
+      </div>
+      <div class="w-full aspect-[4/3] md:aspect-auto md:flex-[820] md:min-w-0">
+        <ProjectCard
+          client:load
+          project={{ slug: 'el-vino-y-el-tiempo', title: 'El Vino y El Tiempo', subtitle: 'Animation', image: '/images/el-vino.jpg', category: 'art', description: '', tags: [], youtubeId: 'dQw4w9WgXcQ' } as any}
+          href="/projects/el-vino-y-el-tiempo"
+          className="h-full"
+          showPlayButton={true}
+        />
+      </div>
+    </div>
+
+    <!-- ROW 2: Cuadros (~67%) + Estancada (~33%) -->
+    <div class="flex flex-col md:flex-row gap-5 md:h-[400px]">
+      <div class="w-full aspect-[4/3] md:aspect-auto md:flex-[820] md:min-w-0">
+        <ProjectCard
+          client:load
+          project={{ slug: 'cuadros', title: 'Cuadros', subtitle: 'Painting', image: '/images/cuadros.png', category: 'art', description: '', tags: [] } as any}
+          href="/projects/cuadros"
+          className="h-full"
+        />
+      </div>
+      <div class="w-full aspect-[4/3] md:aspect-auto md:flex-[410] md:min-w-0">
+        <ProjectCard
+          client:load
+          project={{ slug: 'estancada', title: 'Estancada', subtitle: 'Collage', image: '/images/estancada.jpg', category: 'art', description: '', tags: [] } as any}
+          href="/projects/punto-y-raya"
+          className="h-full"
+        />
+      </div>
+    </div>
+
+    <!-- ROW 3: Tatuajes (~33%) + La Terminal (~67%) -->
+    <div class="flex flex-col md:flex-row gap-5 md:h-[400px]">
+      <div class="w-full aspect-[4/3] md:aspect-auto md:flex-[410] md:min-w-0">
+        <ProjectCard
+          client:load
+          project={{ slug: 'tatuajes', title: 'Tatuajes', subtitle: 'Illustration Sheet', image: '/images/tatuajes.jpg', category: 'art', description: '', tags: [] } as any}
+          href="/projects/punto-y-raya"
+          className="h-full"
+        />
+      </div>
+      <div class="w-full aspect-[4/3] md:aspect-auto md:flex-[820] md:min-w-0">
+        <ProjectCard
+          client:load
+          project={{ slug: 'la-terminal', title: 'La Terminal', subtitle: 'Painting', image: '/images/la-terminal.jpg', category: 'art', description: '', tags: [] } as any}
+          href="/projects/la-terminal"
+          className="h-full"
+        />
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider max-w-[1280px] mx-auto px-6 lg:px-20" />

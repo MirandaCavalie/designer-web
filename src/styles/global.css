@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #FFFFFF;
+  color: #000000;
+  letter-spacing: -0.02em;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: rotate(3deg) translateY(0px); }
+  50% { transform: rotate(3deg) translateY(-8px); }
+}
+
+@keyframes float-book {
+  0%, 100% { transform: rotate(-4deg) translateY(0px); }
+  50% { transform: rotate(-4deg) translateY(6px); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-book {
+  animation: float-book 5s ease-in-out infinite;
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid #E0E0E0;
+  margin: 0;
+}

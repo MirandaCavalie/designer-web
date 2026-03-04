@@ -1,0 +1,133 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+import setCuadros01Img from '../../assets/cuadros/set-cuadros_01.jpg';
+import setCuadros02Img from '../../assets/cuadros/set-cuadros_02.jpg';
+import cuadrosGifImg   from '../../assets/cuadros/cuadros.gif';
+
+const year = new Date().getFullYear();
+const hv = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+---
+
+<Layout
+  title="Cuadros — Fernanda Jara Meza"
+  description="La Soledad de Mi Casa is a set of three mixed-media paintings exploring emotional emptiness through everyday domestic objects."
+>
+  <Navbar />
+
+  <main style="background: #FFFFFF;">
+
+    <div style="padding-top: 170px;"></div>
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 1 · HERO IMAGE                     -->
+    <!-- ─────────────────────────────────────────── -->
+    <img
+      src={setCuadros01Img.src}
+      alt="La Soledad de Mi Casa — full illustration with everyday objects"
+      class="bleed"
+    />
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 2 · FIRST PARAGRAPH                -->
+    <!-- ─────────────────────────────────────────── -->
+    <section class="bleed" style="padding-top: 60px; padding-bottom: 60px;">
+      <div class="reveal text-center mx-auto" style="max-width: 900px; padding: 0 24px;">
+        <p style={`font-size: 20px; color: #000000; line-height: 1.25; letter-spacing: -0.02em; font-family: ${hv}; font-weight: 400;`}>
+          This set of three paintings, titled La Soledad de Mi Casa, emerges as a personal artistic exploration,
+          born from a difficult moment in my life. In each piece, I aimed to capture the emotional emptiness I felt
+          at the time, using everyday elements from my domestic surroundings. Simple objects like a coffee or a piece
+          of paper are transformed into symbols of introspection and melancholy, reflecting how even the most familiar
+          spaces can feel desolate.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 3 · FRAMED PAINTINGS IMAGE         -->
+    <!-- ─────────────────────────────────────────── -->
+    <img
+      src={setCuadros02Img.src}
+      alt="Three framed paintings — La Soledad de Mi Casa"
+      class="bleed"
+    />
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 4 · SECOND PARAGRAPH               -->
+    <!-- ─────────────────────────────────────────── -->
+    <section class="bleed" style="padding-top: 60px; padding-bottom: 60px;">
+      <div class="reveal text-center mx-auto" style="max-width: 900px; padding: 0 24px;">
+        <p style={`font-size: 20px; color: #000000; line-height: 1.25; letter-spacing: -0.02em; font-family: ${hv}; font-weight: 400;`}>
+          The vibrant contrast of warm and cool tones reflects the emotional paradox of that time: external vitality
+          alongside inner emptiness. The grid patterned backgrounds symbolize daily life's routine, disrupted by moments
+          of solitude. Mixed media, including polychromatic colors and fine liners, adds depth and texture to each
+          piece's narrative. This collection seeks to capture a personal moment while resonating with those who've felt
+          similar emotions. Through simple yet impactful imagery, I invite viewers to reflect on the connection between
+          everyday objects and their own emotional states.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 5 · ANIMATED GIF                   -->
+    <!-- ─────────────────────────────────────────── -->
+    <img
+      src={cuadrosGifImg.src}
+      alt="Cuadros — animated close-ups of each painting"
+      class="bleed"
+    />
+
+    <!-- FOOTER -->
+    <footer class="max-w-[1280px] mx-auto px-6 lg:px-20 py-10 border-t border-[#E0E0E0]">
+      <div
+        class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-400"
+        style={`font-family: ${hv};`}
+      >
+        <span>© {year} Fernanda Jara Meza</span>
+      </div>
+    </footer>
+
+  </main>
+</Layout>
+
+<style>
+  .bleed {
+    display: block;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(-50vw + 50%);
+    height: auto;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  :global(body) {
+    overflow-x: hidden;
+  }
+</style>
+
+<script>
+  const els = document.querySelectorAll<HTMLElement>('.reveal');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+  els.forEach((el) => observer.observe(el));
+</script>

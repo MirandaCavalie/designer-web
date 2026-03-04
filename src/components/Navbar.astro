@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import estrella from '../assets/images/estrella.png';
+---
+
+<header
+  class="fixed top-0 left-0 w-full z-50"
+  style="background: transparent; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); height: 170px; mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);"
+>
+  <nav
+    class="max-w-[1280px] mx-auto px-6 lg:px-20 flex items-center justify-between"
+    style="padding-top: 40px; padding-bottom: 40px;"
+    aria-label="Main navigation"
+  >
+    <!-- Logo / Star -->
+    <a href="/" class="flex items-center" aria-label="Fernanda Jara Meza - Home">
+      <Image
+        src={estrella}
+        alt="Fernanda Jara Meza star logo"
+        width={80}
+        height={80}
+        class="animate-spin-slow"
+      />
+    </a>
+
+    <!-- Nav pills -->
+    <ul class="flex items-center gap-2 sm:gap-3 list-none m-0 p-0">
+      {[
+        { label: 'Work', href: '#work' },
+        { label: 'Story', href: '#story' },
+        { label: 'Get in touch', href: '#contact' },
+      ].map(({ label, href }) => (
+        <li>
+          <a
+            href={href}
+            class="inline-block rounded-full bg-black text-white border border-black px-6 py-2 font-medium transition-all duration-300 hover:bg-white hover:text-black"
+            style="font-size: 18px; line-height: 1;"
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

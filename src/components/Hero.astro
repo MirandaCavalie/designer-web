@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+import polaroid from '../assets/images/polaroid.png';
+import libro from '../assets/images/libro.png';
+---
+
+<section class="max-w-[1280px] mx-auto px-6 lg:px-20 pt-[170px] pb-20 lg:pb-28">
+  <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+
+    <!-- Left: Text -->
+    <div class="flex flex-col text-center lg:text-left lg:w-[55%]" style="gap: 15px;">
+      <h1 style="margin: 0; color: #000000; font-size: clamp(40px, 4.5vw, 64px); line-height: 1; letter-spacing: -0.02em;">
+        <span style="font-weight: 400; display: block;">Hi, my name is</span>
+        <span style="font-weight: 700; display: block; white-space: nowrap;">Fernanda Jara Meza.</span>
+      </h1>
+      <p style="font-size: 40px; font-weight: 400; color: #000000; line-height: 1.25; letter-spacing: -0.02em; max-width: 686px;">
+        I'm a graphic designer, and the illustrator behind <em>Punto y Raya.</em>
+      </p>
+      <p style="font-size: 20px; font-weight: 400; color: #666666; line-height: 1.25; letter-spacing: -0.02em; max-width: 430px;" class="mx-auto lg:mx-0">
+        I work across two paths: illustration as artistic exploration, and graphic
+        design for branding and digital platforms.
+      </p>
+    </div>
+
+    <!-- Right: Collage -->
+    <div class="flex-shrink-0 animate-float" style="position: relative; display: inline-block; margin-bottom: 180px;">
+      <!-- Polaroid -->
+      <Image
+        src={polaroid}
+        alt="Photo of Fernanda Jara Meza"
+        width={340}
+        height={510}
+        class="drop-shadow-2xl"
+        style="display: block; width: 340px; height: auto; transform: rotate(-5.1deg); margin-top: 110px; margin-left: 100px;"
+      />
+      <!-- Sketchbook overlapping bottom-left -->
+      <Image
+        src={libro}
+        alt="Open sketchbook with illustrations"
+        width={429}
+        height={417}
+        class="drop-shadow-lg"
+        style="position: absolute; bottom: -200px; left: -120px; width: 429px; height: auto; transform: rotate(-20deg); mix-blend-mode: multiply; z-index: 10;"
+      />
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider max-w-[1280px] mx-auto px-6 lg:px-20" />

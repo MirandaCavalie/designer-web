@@ -1,0 +1,68 @@
+---
+const experience = [
+  { role: 'Graphic designer', company: 'Greater studio', year: '2025 – 2026' },
+  { role: 'Jr. Graphic designer', company: 'APOYO Comunicación', year: '2023 – 2025' },
+];
+---
+
+<section id="story" class="max-w-[1280px] mx-auto px-6 lg:px-20 py-20">
+  <!-- Section header -->
+  <div class="mb-4">
+    <span
+      class="text-3xl md:text-4xl lg:text-5xl font-normal"
+      style="font-family: 'DM Serif Display', Georgia, serif;"
+    >
+      Story
+    </span>
+  </div>
+  <hr class="section-divider mb-10" />
+
+  <!-- Bio -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+    <div class="space-y-4">
+      <p class="text-base text-gray-700 leading-relaxed">
+        I'm a graphic designer and illustrator based in Lima, Peru. Under the name
+        <em style="font-family: 'DM Serif Display', Georgia, serif;">Punto y Raya</em>,
+        I explore artistic illustration — a personal practice driven by curiosity, texture, and story.
+      </p>
+      <p class="text-base text-gray-700 leading-relaxed">
+        On the design side, I help brands find their visual voice through thoughtful branding,
+        digital assets, and UI design. I believe good design feels inevitable — like it couldn't
+        have been any other way.
+      </p>
+    </div>
+
+    <!-- Skills -->
+    <div class="space-y-3">
+      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400">Disciplines</p>
+      <div class="flex flex-wrap gap-2">
+        {['Brand Identity', 'Illustration', 'UI/UX Design', 'Social Media', 'Print Design', 'Art Direction', 'Typography'].map((skill) => (
+          <span class="rounded-full border border-gray-200 px-3 py-1 text-sm text-gray-700">
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Experience table -->
+  <div>
+    <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">Experience</p>
+    <div class="divide-y divide-[#E0E0E0]">
+      {experience.map(({ role, company, year }) => (
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between py-5 gap-1">
+          <span
+            class="text-lg font-medium"
+            style="font-family: 'DM Serif Display', Georgia, serif;"
+          >
+            {role}
+          </span>
+          <span class="text-base text-gray-600">{company}</span>
+          <span class="text-sm text-gray-400 tabular-nums">{year}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider max-w-[1280px] mx-auto px-6 lg:px-20" />

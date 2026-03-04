@@ -1,0 +1,143 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+import cover1Img    from '../../assets/el-vino-y-el-tiempo/1.jpg';
+import flower2Img   from '../../assets/el-vino-y-el-tiempo/2.gif';
+import sketches3Img from '../../assets/el-vino-y-el-tiempo/3.gif';
+import video4Url    from '../../assets/el-vino-y-el-tiempo/4.mp4';
+
+const year = new Date().getFullYear();
+const hv = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+---
+
+<Layout
+  title="El Vino y El Tiempo — Fernanda Jara Meza"
+  description="Cover art and music video illustrations for El Vino y El Tiempo — a project blending nostalgia, wine, and the passage of time."
+>
+  <Navbar />
+
+  <main style="background: #FFFFFF;">
+
+    <div style="padding-top: 170px;"></div>
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 1 · HERO COVER ART                 -->
+    <!-- ─────────────────────────────────────────── -->
+    <img
+      src={cover1Img.src}
+      alt="El Vino y El Tiempo — cover art with wine bottle and hourglass on dark green background"
+      class="bleed"
+    />
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 2 · FIRST PARAGRAPH                -->
+    <!-- ─────────────────────────────────────────── -->
+    <section class="bleed" style="padding-top: 60px; padding-bottom: 60px;">
+      <div class="reveal text-center mx-auto" style="max-width: 900px; padding: 0 24px;">
+        <p style={`font-size: 20px; color: #000000; line-height: 1.25; letter-spacing: -0.02em; font-family: ${hv}; font-weight: 400;`}>
+          The creative process behind this illustration for the cover art involved intense iteration, aiming to capture
+          the song's deepest essence. The artwork symbolically combines wine and time elements that reflect nostalgia
+          and the desire to preserve unique moments. Every detail was crafted to resonate with the emotion of the music
+          and visually convey its story.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 3 · SKETCHES / PROCESS             -->
+    <!-- ─────────────────────────────────────────── -->
+    <img
+      src={sketches3Img.src}
+      alt="El Vino y El Tiempo — sketches and process notebook with bottle drawings and polaroid frames"
+      class="bleed"
+    />
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 4 · SECOND PARAGRAPH               -->
+    <!-- ─────────────────────────────────────────── -->
+    <section class="bleed" style="padding-top: 60px; padding-bottom: 60px;">
+      <div class="reveal text-center mx-auto" style="max-width: 900px; padding: 0 24px;">
+        <p style={`font-size: 20px; color: #000000; line-height: 1.25; letter-spacing: -0.02em; font-family: ${hv}; font-weight: 400;`}>
+          I also took part in the music video design, creating illustrations that were later animated. Each illustration
+          was conceived with the purpose of enhancing the storytelling and connecting with the emotions of the song.
+          Additionally, each piece includes specific variations that add dynamism and fluidity to the animation,
+          enriching the project's visual narrative.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 5 · FLOWER GIF + VIDEO — NO GAP    -->
+    <!-- ─────────────────────────────────────────── -->
+    <div style="font-size: 0; line-height: 0;">
+      <img
+        src={flower2Img.src}
+        alt="El Vino y El Tiempo — flower illustration on dark green background"
+        class="bleed"
+        style="display: block; margin: 0; padding: 0;"
+      />
+      <video
+        src={video4Url}
+        autoplay
+        muted
+        loop
+        playsinline
+        class="bleed"
+        style="display: block; margin: 0; padding: 0;"
+      ></video>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="max-w-[1280px] mx-auto px-6 lg:px-20 py-10 border-t border-[#E0E0E0]">
+      <div
+        class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-400"
+        style={`font-family: ${hv};`}
+      >
+        <span>© {year} Fernanda Jara Meza</span>
+      </div>
+    </footer>
+
+  </main>
+</Layout>
+
+<style>
+  .bleed {
+    display: block;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(-50vw + 50%);
+    height: auto;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  :global(body) {
+    overflow-x: hidden;
+  }
+</style>
+
+<script>
+  const els = document.querySelectorAll<HTMLElement>('.reveal');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+  els.forEach((el) => observer.observe(el));
+</script>

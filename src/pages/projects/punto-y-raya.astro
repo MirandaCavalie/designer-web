@@ -1,0 +1,171 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+import heroImg          from '../../assets/punto-y-raya/HERO.gif';
+import intagramImg      from '../../assets/punto-y-raya/intagram.gif';
+import igImg            from '../../assets/punto-y-raya/IG.gif';
+import logoUnnoImg      from '../../assets/punto-y-raya/LOGO_ESPACIO_UNNO.png';
+import tiendaCelularImg from '../../assets/punto-y-raya/tienda_celular.gif';
+import tiendita04Img    from '../../assets/punto-y-raya/tiendita_04.jpg';
+import ropaImg          from '../../assets/punto-y-raya/ropa.jpg';
+import comp11Img        from '../../assets/punto-y-raya/Comp_1_1.gif';
+import collageImg       from '../../assets/punto-y-raya/collage.png';
+import graxImg          from '../../assets/punto-y-raya/grax.gif';
+import espacioUnnoSep   from '../../assets/punto-y-raya/ESPACIO_UNNO.gif';
+
+const year = new Date().getFullYear();
+const hv = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+---
+
+<Layout
+  title="Punto y Raya — Fernanda Jara Meza"
+  description="Punto y Raya is the illustration and art brand of Fernanda Jara Meza — an ongoing series of drawings, prints, apparel, and community."
+>
+  <Navbar />
+
+  <main style="background: #E5E3E4;">
+
+    <div style="padding-top: 170px;"></div>
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 1 · HERO                           -->
+    <!-- ─────────────────────────────────────────── -->
+    <img
+      src={heroImg.src}
+      alt="Punto y Raya — hero illustration with scattered drawings and lettering"
+      class="bleed"
+    />
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 2 · INSTAGRAM                      -->
+    <!-- ─────────────────────────────────────────── -->
+
+    <img src={igImg.src} alt="Instagram Illustrations" class="bleed" />
+
+    <section class="bleed" style="padding-top: 0; padding-bottom: 60px;">
+      <div class="reveal flex justify-center mb-10">
+        <img
+          src={intagramImg.src}
+          alt="Instagram feed on phone mockup"
+          class="w-full h-auto block"
+        />
+      </div>
+      <div class="reveal text-center mx-auto" style="max-width: 900px;">
+        <p style={`font-size: 20px; color: #000000; line-height: 1.25; letter-spacing: -0.02em; font-family: ${hv}; font-weight: 400;`}>
+          This is an ongoing series of illustrations I share on Instagram as a personal and emotional outlet.
+          It works like a visual diary and a space for spontaneous self expression.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 3 · GALLERY SALE – ESPACIO UNNO    -->
+    <!-- ─────────────────────────────────────────── -->
+
+    <img src={espacioUnnoSep.src} alt="Gallery Sale – Espacio Uno" class="bleed" />
+
+    <section class="max-w-[1280px] mx-auto px-6 lg:px-20" style="padding-top: 30px; padding-bottom: 0;">
+
+      <div class="reveal text-center mb-4">
+        <img
+          src={logoUnnoImg.src}
+          alt="Espacio UNNO logo"
+          class="mx-auto mb-6 object-contain"
+          style="width: 160px; height: auto;"
+        />
+        <p class="mx-auto" style={`max-width: 900px; font-size: 20px; color: #000000; line-height: 1.25; letter-spacing: -0.02em; font-family: ${hv}; font-weight: 400;`}>
+          There, I showcased and sold prints, stickers, keychains, wish boxes, and gift cards,
+          all based on my original illustrations. It was a meaningful opportunity to bring PUNTO Y RAYA
+          into a physical setting, connect with new people, and share my work in a space dedicated to
+          independent creators.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- Images: collage → tienda celular → tiendita_04 — full bleed -->
+    <img src={collageImg.src} alt="Punto y Raya community collage" class="bleed" />
+    <img src={tiendaCelularImg.src} alt="Espacio UNNO shop on phone mockups" class="bleed" />
+    <img src={tiendita04Img.src} alt="Punto y Raya keychains, stickers, and prints laid out" class="bleed" />
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 4 · WEARING MY ART                 -->
+    <!-- ─────────────────────────────────────────── -->
+
+    <img src={comp11Img.src} alt="Wearing My Art" class="bleed" />
+
+    <section class="max-w-[1280px] mx-auto px-6 lg:px-20" style="padding-top: 30px; padding-bottom: 40px;">
+      <div class="reveal text-center mx-auto" style="max-width: 900px;">
+        <p style={`font-size: 20px; color: #000000; line-height: 1.25; letter-spacing: -0.02em; font-family: ${hv}; font-weight: 400;`}>
+          As part of my personal brand, I created a small collection of illustrated apparel, including
+          sweatshirts, t-shirts, and bucket hats. Each piece features original artwork that brings
+          illustration off the page and into everyday life.
+        </p>
+      </div>
+    </section>
+
+    <!-- ropa.jpg — full bleed, no rounded corners -->
+    <img src={ropaImg.src} alt="Punto y Raya clothing collection" class="bleed" />
+
+    <!-- ─────────────────────────────────────────── -->
+    <!-- SECTION 5 · GRACIAS                        -->
+    <!-- ─────────────────────────────────────────── -->
+    <img src={graxImg.src} alt="Gracias — Punto y Raya" class="bleed" />
+
+    <!-- FOOTER -->
+    <footer class="max-w-[1280px] mx-auto px-6 lg:px-20 py-10 border-t border-[#E0E0E0]">
+      <div
+        class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-400"
+        style={`font-family: ${hv};`}
+      >
+        <span>© {year} Fernanda Jara Meza</span>
+      </div>
+    </footer>
+
+  </main>
+</Layout>
+
+<style>
+  /* Full-bleed: breaks out of any container to touch both screen edges */
+  .bleed {
+    display: block;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(-50vw + 50%);
+    height: auto;
+  }
+
+  /* Scroll-reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Prevent horizontal scrollbar from 100vw bleed elements */
+  :global(body) {
+    overflow-x: hidden;
+  }
+</style>
+
+<script>
+  const els = document.querySelectorAll<HTMLElement>('.reveal');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+  els.forEach((el) => observer.observe(el));
+</script>
