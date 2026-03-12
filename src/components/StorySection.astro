@@ -1,0 +1,169 @@
+---
+const hv = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+---
+
+<section id="story" class="max-w-[1280px] mx-auto px-6 lg:px-20 py-20">
+
+  <!-- Top: two-column layout -->
+  <div class="story-top">
+
+    <!-- LEFT: image (~45%) -->
+    <div class="story-image-col">
+      <img src="https://res.cloudinary.com/dvfhegxgx/image/upload/v1773211510/story_mjz7ql.png" alt="Fernanda Jara Meza" class="story-img" />
+    </div>
+
+    <!-- RIGHT: text (~55%) -->
+    <div class="story-text-col">
+      <h2 class="story-title">
+        I've always looked at the world with curiosity.
+      </h2>
+
+      <p class="story-para">
+        I've always been drawn to small details: gestures, colors, textures, memories. Over time, I realized I needed a way to process everything I observe and feel, and creating became that language. Design gave me structure and clarity; illustration gave me space and freedom. I naturally move between these two ways of thinking: one more analytical and intentional, the other more intuitive and emotional.
+      </p>
+
+      <p class="story-para">
+        As a designer, I build visual systems with purpose. As an artist, I transform what feels internal into something tangible, something I can share.
+      </p>
+
+      <p class="story-para story-para--italic">
+        Creating allows me to give form to what I carry inside, and both sides continue to shape how I see the world and how I grow within it.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Experience table -->
+  <div class="exp-table">
+
+    <div class="exp-row">
+      <span class="exp-role">Graphic designer</span>
+      <span class="exp-company">
+        <strong>Greater studio</strong>
+        <span class="exp-location"> — New York</span>
+      </span>
+      <span class="exp-years">2025 - 2026</span>
+    </div>
+
+    <div class="exp-row">
+      <span class="exp-role">Jr. Graphic designer</span>
+      <span class="exp-company">
+        <strong>APOYO Comunicación</strong>
+        <span class="exp-location"> — Perú</span>
+      </span>
+      <span class="exp-years">2022 - 2024</span>
+    </div>
+
+    <div class="exp-row">
+      <span class="exp-role">Internship</span>
+      <span class="exp-company">
+        <strong>Design Agencies</strong>
+        <span class="exp-location"> — Perú</span>
+      </span>
+      <span class="exp-years">2021 - 2022</span>
+    </div>
+
+  </div>
+
+</section>
+
+<style define:vars={{ hv }}>
+  /* ── Top two-column ── */
+  .story-top {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 64px;
+  }
+
+  @media (min-width: 768px) {
+    .story-top {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 60px;
+    }
+    .story-image-col { flex: 45; }
+    .story-text-col  { flex: 55; }
+  }
+
+  .story-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .story-title {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 700;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+    color: #000000;
+    margin: 0 0 28px 0;
+  }
+
+  .story-para {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    line-height: 125%;
+    letter-spacing: -0.02em;
+    color: #000000;
+    font-weight: 400;
+    margin: 0 0 20px 0;
+  }
+
+  .story-para--italic {
+    font-style: italic;
+  }
+
+  /* ── Experience table ── */
+  .exp-table {
+    width: 100%;
+    border-top: 1px solid #E0E0E0;
+  }
+
+  .exp-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 0;
+    border-bottom: 1px solid #E0E0E0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .exp-role {
+    font-weight: 400;
+    font-size: 20px;
+    color: #000;
+    flex: 1;
+  }
+
+  .exp-company {
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    flex: 1;
+  }
+
+  .exp-company strong {
+    font-weight: 400;
+  }
+
+  .exp-location {
+    font-weight: 400;
+    font-size: 16px;
+    color: #666;
+  }
+
+  .exp-years {
+    font-weight: 400;
+    font-size: 20px;
+    color: #000;
+    text-align: right;
+    white-space: nowrap;
+    flex: 1;
+  }
+</style>

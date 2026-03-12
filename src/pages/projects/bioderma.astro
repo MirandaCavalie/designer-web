@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+const year = new Date().getFullYear();
+const hv = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+---
+
+<Layout
+  title="Bioderma — Fernanda Jara Meza"
+  description="Web advertising mockups created for Bioderma's digital campaigns."
+>
+  <Navbar />
+
+  <main style="background: #FFFFFF;">
+
+    <div style="padding-top: 170px;"></div>
+
+    <!-- 4 items stacked, zero gap -->
+    <div style="font-size: 0; line-height: 0;">
+      <video autoplay loop muted playsinline class="bleed">
+        <source src="https://res.cloudinary.com/dvfhegxgx/video/upload/v1773213824/1_jem2hh.mp4" type="video/mp4" />
+      </video>
+      <img src="https://res.cloudinary.com/dvfhegxgx/image/upload/v1773211350/2_d6px8x.jpg" alt="Bioderma 2" class="bleed" />
+      <video autoplay loop muted playsinline class="bleed">
+        <source src="https://res.cloudinary.com/dvfhegxgx/video/upload/v1773213911/3_ffeews.mp4" type="video/mp4" />
+      </video>
+      <video autoplay loop muted playsinline class="bleed">
+        <source src="https://res.cloudinary.com/dvfhegxgx/video/upload/v1773213827/4_jdtviu.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Paragraph -->
+    <div style={`max-width: 900px; margin: 0 auto; padding: 60px 24px; text-align: center; font-family: ${hv}; font-size: 20px; line-height: 1.25; letter-spacing: -0.02em; color: #000000; font-weight: 400;`}>
+      <p class="reveal" style="margin: 0;">
+        These mockups were created for Bioderma's web advertising campaigns. The pieces were designed following the brand's visual guidelines, focusing on highlighting key product benefits through a clean and cohesive visual approach that aligns with Bioderma's identity.
+      </p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="max-w-[1280px] mx-auto px-6 lg:px-20 py-10 border-t border-[#E0E0E0]">
+      <div
+        class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-400"
+        style={`font-family: ${hv};`}
+      >
+        <span>© {year} Fernanda Jara Meza</span>
+      </div>
+    </footer>
+
+  </main>
+</Layout>
+
+<style>
+  .bleed {
+    display: block;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(-50vw + 50%);
+    height: auto;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  :global(body) {
+    overflow-x: hidden;
+  }
+</style>
+
+<script>
+  const els = document.querySelectorAll<HTMLElement>('.reveal');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+  els.forEach((el) => observer.observe(el));
+</script>

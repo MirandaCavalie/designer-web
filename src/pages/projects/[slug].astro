@@ -1,0 +1,153 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import { projects, getProjectBySlug } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const project = getProjectBySlug(slug);
+
+if (!project) {
+  return Astro.redirect('/404');
+}
+
+const categoryLabel = project.category === 'art' ? 'Art — Punto y Raya' : 'Design';
+---
+
+<Layout
+  title={`${project.title} — Fernanda Jara Meza`}
+  description={project.description}
+>
+  <Navbar />
+  <main class="max-w-[1280px] mx-auto px-6 lg:px-20 pt-[170px] pb-16">
+
+    <!-- Back button -->
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 text-sm font-medium text-gray-500 hover:text-black transition-colors duration-200 mb-12 group"
+    >
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="transition-transform duration-200 group-hover:-translate-x-1"
+      >
+        <line x1="19" y1="12" x2="5" y2="12" />
+        <polyline points="12 19 5 12 12 5" />
+      </svg>
+      Back to portfolio
+    </a>
+
+    <!-- Project header -->
+    <div class="mb-10">
+      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">
+        {categoryLabel}
+      </p>
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-normal leading-tight mb-4"
+        style="font-family: 'DM Serif Display', Georgia, serif;"
+      >
+        {project.title}
+      </h1>
+      <p class="text-lg text-gray-500 max-w-2xl">{project.subtitle}</p>
+    </div>
+
+    <hr class="section-divider mb-10" />
+
+    <!-- Two column layout: image + info -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+      <!-- Main image -->
+      <div class="rounded-2xl overflow-hidden bg-gray-50">
+        {project.youtubeId ? (
+          <div class="relative aspect-video">
+            <iframe
+              src={`https://www.youtube.com/embed/${project.youtubeId}`}
+              title={project.title}
+              class="absolute inset-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+          </div>
+        ) : (
+          <img
+            src={project.image}
+            alt={project.title}
+            class="w-full h-auto object-cover"
+          />
+        )}
+      </div>
+
+      <!-- Project info -->
+      <div class="space-y-8">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">About</p>
+          <p class="text-base text-gray-700 leading-relaxed">{project.description}</p>
+        </div>
+
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Tags</p>
+          <div class="flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span class="rounded-full border border-gray-200 px-3 py-1 text-sm text-gray-600">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div class="pt-4">
+          <a
+            href="/#contact"
+            class="inline-block rounded-full bg-black text-white px-6 py-3 text-sm font-medium transition-all duration-300 hover:bg-gray-800"
+          >
+            Work with me
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- More projects -->
+    <div class="mt-24">
+      <hr class="section-divider mb-10" />
+      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-6">More projects</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {projects
+          .filter((p) => p.slug !== project.slug && p.category === project.category)
+          .slice(0, 4)
+          .map((p) => (
+            <a
+              href={`/projects/${p.slug}`}
+              class="group block rounded-xl overflow-hidden bg-gray-50 aspect-square"
+            >
+              <img
+                src={p.image}
+                alt={p.title}
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            </a>
+          ))}
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Simple footer on detail pages -->
+  <footer class="max-w-[1280px] mx-auto px-6 lg:px-20 py-10 border-t border-[#E0E0E0] mt-10">
+    <div class="flex justify-between text-xs text-gray-400">
+      <span>© {new Date().getFullYear()} Fernanda Jara Meza</span>
+      <a href="/" class="hover:text-black transition-colors duration-200">Portfolio</a>
+    </div>
+  </footer>
+</Layout>

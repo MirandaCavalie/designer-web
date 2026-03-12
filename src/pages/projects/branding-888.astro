@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+const year = new Date().getFullYear();
+const hv = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+---
+
+<Layout
+  title="Branding 888 — Fernanda Jara Meza"
+  description="Brand identity project for 888."
+>
+  <Navbar />
+
+  <main style="background: #FFFFFF;">
+
+    <div style="padding-top: 170px;"></div>
+
+    <!-- 2 items stacked, zero gap -->
+    <div style="font-size: 0; line-height: 0;">
+      <video autoplay loop muted playsinline class="bleed">
+        <source src="https://res.cloudinary.com/dvfhegxgx/video/upload/v1773213927/888_vghtre.mp4" type="video/mp4" />
+      </video>
+      <img src="https://res.cloudinary.com/dvfhegxgx/image/upload/v1773214039/1_small_jbum3c.png" alt="888" class="bleed" />
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="max-w-[1280px] mx-auto px-6 lg:px-20 py-10 border-t border-[#E0E0E0]">
+      <div
+        class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-400"
+        style={`font-family: ${hv};`}
+      >
+        <span>© {year} Fernanda Jara Meza</span>
+      </div>
+    </footer>
+
+  </main>
+</Layout>
+
+<style>
+  .bleed {
+    display: block;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(-50vw + 50%);
+    height: auto;
+  }
+
+  :global(body) {
+    overflow-x: hidden;
+  }
+</style>

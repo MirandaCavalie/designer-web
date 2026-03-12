@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import ArtSection from '../components/ArtSection.astro';
+import DesignSection from '../components/DesignSection.astro';
+import StorySection from '../components/StorySection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Navbar />
+  <main style="padding-top: 64px;">
+    <Hero />
+    <ArtSection />
+    <DesignSection />
+    <StorySection />
+  </main>
+  <Footer />
+</Layout>

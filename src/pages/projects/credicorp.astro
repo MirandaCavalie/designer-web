@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+const year = new Date().getFullYear();
+const hv = "'Helvetica Neue', Helvetica, Arial, sans-serif";
+---
+
+<Layout
+  title="Credicorp — Fernanda Jara Meza"
+  description="Design system work for Credicorp."
+>
+  <Navbar />
+
+  <main style="background: #FFFFFF;">
+
+    <div style="padding-top: 170px;"></div>
+
+    <!-- 8 items stacked, zero gap -->
+    <div style="font-size: 0; line-height: 0;">
+      <img src="https://res.cloudinary.com/dvfhegxgx/image/upload/v1773211412/1_tqlalm.png" alt="Credicorp 1" class="bleed" />
+      <video autoplay loop muted playsinline class="bleed">
+        <source src="https://res.cloudinary.com/dvfhegxgx/video/upload/v1773213803/2_skem4n.mp4" type="video/mp4" />
+      </video>
+      <video autoplay loop muted playsinline class="bleed">
+        <source src="https://res.cloudinary.com/dvfhegxgx/video/upload/v1773213807/3_nnevwu.mp4" type="video/mp4" />
+      </video>
+      <img src="https://res.cloudinary.com/dvfhegxgx/image/upload/v1773211416/4_p0ydlk.png" alt="Credicorp 4" class="bleed" />
+      <video autoplay loop muted playsinline class="bleed">
+        <source src="https://res.cloudinary.com/dvfhegxgx/video/upload/v1773213685/5_iadj9l.mp4" type="video/mp4" />
+      </video>
+      <video autoplay loop muted playsinline class="bleed">
+        <source src="https://res.cloudinary.com/dvfhegxgx/video/upload/v1773213687/6_my49vf.mp4" type="video/mp4" />
+      </video>
+      <video autoplay loop muted playsinline class="bleed">
+        <source src="https://res.cloudinary.com/dvfhegxgx/video/upload/v1773213692/7_jdqanp.mp4" type="video/mp4" />
+      </video>
+      <img src="https://res.cloudinary.com/dvfhegxgx/image/upload/v1773211423/8_lv1rri.png" alt="Credicorp 8" class="bleed" />
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="max-w-[1280px] mx-auto px-6 lg:px-20 py-10 border-t border-[#E0E0E0]">
+      <div
+        class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-400"
+        style={`font-family: ${hv};`}
+      >
+        <span>© {year} Fernanda Jara Meza</span>
+      </div>
+    </footer>
+
+  </main>
+</Layout>
+
+<style>
+  .bleed {
+    display: block;
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(-50vw + 50%);
+    height: auto;
+  }
+
+  :global(body) {
+    overflow-x: hidden;
+  }
+</style>
